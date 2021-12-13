@@ -1,3 +1,7 @@
 node_modules
-.parcel-cache
+lib
+temp
 dist
+serve
+.parcel-cache
+src/stories
