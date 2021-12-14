@@ -1,5 +1,5 @@
 {
-  "name": "react-news-ticker",
+  "name": "@manualengineering/react-news-ticker",
   "version": "0.0.1",
   "description": "A news ticker component for those times when you have so much to say.",
   "main": "dist/index.js",
