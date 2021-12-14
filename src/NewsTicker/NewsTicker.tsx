@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, ReactChild } from 'react';
 import styled from 'styled-components';
-import TweenMax from 'gsap/TweenMax';
-import { Power0 } from 'gsap/EasePack';
+import { gsap } from "gsap";
 
 /**
  * NewsTicker is a wrapper component to create an infinite scrolling effect.
@@ -32,7 +31,7 @@ const Set = styled.div`
   min-width: 500px;
 `
 
-const NewsTicker = (props) => {
+const NewsTicker = (props:any) => {
   const { speed, children } = props;
 
   const [ Key, SetKey ] = useState(0);
@@ -62,11 +61,11 @@ const NewsTicker = (props) => {
   }
 
   const executeAnimations = () => {
-    myTween.current = TweenMax.to(set.current, speed, {x: "-100%", y: 0, ease: Power0.easeNone, onComplete: function() {
+    myTween.current = gsap.to(set.current,{duration: speed , x: "-100%", y: 0, ease: "power0.easeInOut", onComplete: function() {
       SetKey(Key + 1);
     }})
 
-    myTween2.current = TweenMax.to(set2.current, speed, {x: "-100%", y: 0, ease: Power0.easeNone });
+    myTween2.current = gsap.to(set2.current,{duration: speed, x: "-100%", y: 0, ease: "power0.easeInOut" });
   }
 
   const createNewsItemSet = (children:any, ref:number) => {
