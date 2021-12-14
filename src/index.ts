@@ -1,6 +1,6 @@
 
-import Example from "./Example/Example"; 
+import NewsTicker from './NewsTicker/NewsTicker';
 
 export {
-  Example
+  NewsTicker
 }
