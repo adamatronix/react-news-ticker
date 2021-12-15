@@ -26,9 +26,7 @@ const Set = styled.div`
 `
 
  const Item = styled.div`
-  display: flex;
   margin: 0 10px;
-  min-width: 500px;
 `
 
 const NewsTicker = (props:any) => {
