@@ -1,6 +1,6 @@
 {
   "name": "@manualengineering/react-news-ticker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A news ticker component for those times when you have so much to say.",
   "main": "dist/index.js",
   "targets": {

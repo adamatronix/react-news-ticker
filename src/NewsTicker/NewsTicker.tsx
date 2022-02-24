@@ -31,8 +31,6 @@ const Set = styled.div`
 
 const NewsTicker = (props:any) => {
   const { speed, children } = props;
-
-  const [ Key, SetKey ] = useState(0);
   const set = useRef(null);
   const set2 = useRef(null);
   const myTween = useRef(null);
@@ -45,7 +43,7 @@ const NewsTicker = (props:any) => {
       myTween.current.kill();
       myTween2.current.kill();
     }
-  },[Key]);
+  },[]);
 
 
   const onMouseEnter = () => {
@@ -59,11 +57,9 @@ const NewsTicker = (props:any) => {
   }
 
   const executeAnimations = () => {
-    myTween.current = gsap.to(set.current,{duration: speed , x: "-100%", y: 0, ease: "power0.easeInOut", onComplete: function() {
-      SetKey(Key + 1);
-    }})
+    myTween.current = gsap.to(set.current,{duration: speed , x: "-100%", y: 0, ease: "linear", repeat: -1})
 
-    myTween2.current = gsap.to(set2.current,{duration: speed, x: "-100%", y: 0, ease: "power0.easeInOut" });
+    myTween2.current = gsap.to(set2.current,{duration: speed, x: "-100%", y: 0, ease: "linear", repeat: -1, });
   }
 
   const createNewsItemSet = (children:any, ref:number) => {
@@ -75,7 +71,7 @@ const NewsTicker = (props:any) => {
   }
 
   return (
-    <Wrapper key={Key} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
+    <Wrapper onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
       <Inner>
         { createNewsItemSet(children, 0) }
         { createNewsItemSet(children, 1) }
